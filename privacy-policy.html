@@ -3,493 +3,336 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Privacy Policy - Line Animator</title>
-
 <style>
+:root {
+  --accent: #4D73F8;
+  --accent-highlight: rgba(68, 102, 216, 0.08);
+  --background: #F6F8FC;
+  --canvas: #ECEEF3;
+  --surface: #FBFCFD;
+  --card: #EAF1FE;
+  --next: #E1ECFD;
+  --text: #0B1B31;
+  --sub: #64748B;
+  --hint: #94A3B8;
+  --line: rgba(148, 163, 184, 0.35);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 40px auto;
-    padding: 0 20px;
-    max-width: 900px;
-    color: #333;
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
-
-h1, h2 {
-    color: #222;
+.column {
+  max-width: 640px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
 }
-
-h1 {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 16px;
 }
-
-.section {
-    margin-top: 30px;
+.topbar h1 { margin: 0; font-size: 20px; line-height: 1.25; font-weight: 800; }
+.topbar p { margin: 0; font-size: 13px; color: var(--sub); line-height: 1.3; }
+.block { padding: 20px 16px; border-bottom: 1px solid var(--line); }
+.block > :last-child { margin-bottom: 0; }
+.intro .tag {
+  display: block;
+  background: var(--card);
+  color: var(--text);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 16px;
 }
-
-.footer {
-    margin-top: 40px;
-    padding-top: 15px;
-    border-top: 1px solid #eee;
-    font-size: 14px;
-    color: #666;
+.intro .tag span { display: block; color: var(--sub); font-size: 13px; }
+.intro .tag strong { font-weight: 700; }
+.intro p { margin: 0 0 12px; }
+.toc h2 { margin: 0 0 8px; font-size: 20px; font-weight: 800; }
+.toc ol { list-style: none; margin: 0 -16px; padding: 0; }
+.toc a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 15px;
+  border-top: 1px solid var(--line);
 }
-
-a {
-    color: #3366cc;
-    text-decoration: none;
+.toc li { padding: 0; }
+.toc li::before { content: none; display: none; }
+.toc li:first-child a { border-top: 0; }
+.toc a:hover { background: var(--card); color: var(--accent); }
+h2.title { margin: 0 0 12px; font-size: 20px; line-height: 1.3; font-weight: 800; }
+h3 { margin: 24px 0 8px; font-size: 16px; font-weight: 700; }
+p { margin: 0 0 12px; }
+ul { margin: 0 0 12px; padding: 0; list-style: none; }
+li { position: relative; padding: 2px 0 2px 20px; }
+li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
 }
-
-a:hover {
-    text-decoration: underline;
+a { color: var(--accent); text-underline-offset: 3px; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.pill {
+  display: inline-block;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.pill:hover { background: var(--accent-highlight); text-decoration: none; }
+.contact {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 16px;
+}
+.contact p { margin: 0 0 4px; }
+.contact p:last-child { margin: 0; }
+.footer { padding: 24px 16px 40px; text-align: center; font-size: 14px; color: var(--sub); }
+.footer p { margin: 0; }
+@media (max-width: 640px) {
+  .column { border-left: 0; border-right: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 </style>
-
 </head>
 <body>
+<div class="column">
 
-<h1>Privacy Policy for Line Animator</h1>
+  <header class="topbar">
+    <h1>Privacy Policy</h1>
+    <p>Line Animator by Zix</p>
+  </header>
 
-<p><strong>Last Updated:</strong> October 20, 2026</p>
+  <div class="block intro">
+    <div class="tag"><span>Last Updated</span><strong>October 20, 2026</strong></div>
+    <p>This Privacy Policy explains how <strong>Line Animator</strong>, developed by <strong>Zix</strong>, handles user information, including information processed through third-party services used for advertising, subscriptions, and app functionality.</p>
+    <p>By using Line Animator, you acknowledge the data practices described in this Privacy Policy.</p>
+  </div>
 
-<p>
-This Privacy Policy explains how <strong>Line Animator</strong>,
-developed by <strong>Zix</strong>, handles user information,
-including information processed through third-party services
-used for advertising, subscriptions, and app functionality.
-</p>
+  <nav class="block toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#collect">1. Information We Collect</a></li>
+      <li><a href="#permissions">2. Permissions Used</a></li>
+      <li><a href="#third-party">3. Third-Party Services</a></li>
+      <li><a href="#advertising">4. Advertising</a></li>
+      <li><a href="#subscriptions">5. Subscriptions and Payments</a></li>
+      <li><a href="#storage">6. Data Storage</a></li>
+      <li><a href="#reviews">7. In-App Reviews</a></li>
+      <li><a href="#security">8. Data Security</a></li>
+      <li><a href="#children">9. Children’s Privacy</a></li>
+      <li><a href="#choices">10. Your Privacy Choices</a></li>
+      <li><a href="#changes">11. Changes to This Privacy Policy</a></li>
+      <li><a href="#contact">12. Contact Us</a></li>
+    </ol>
+  </nav>
 
-<p>
-By using Line Animator, you acknowledge the data practices
-described in this Privacy Policy.
-</p>
+  <section class="block" id="collect">
+    <h2 class="title">1. Information We Collect</h2>
+    <p>Line Animator does not require users to create an account or provide personal information such as:</p>
+    <ul>
+      <li>Name</li>
+      <li>Email address</li>
+      <li>Phone number</li>
+      <li>Physical address</li>
+    </ul>
+    <p>The developer does not directly collect or upload user-created animation projects to external servers.</p>
+    <p>However, third-party services integrated into the app may automatically collect or process certain information, including:</p>
+    <ul>
+      <li>Device information and identifiers</li>
+      <li>Advertising identifiers</li>
+      <li>App interactions and usage information</li>
+      <li>Diagnostic and performance information</li>
+      <li>Purchase and subscription information</li>
+    </ul>
+    <p>The information processed depends on the third-party services used, device settings, and applicable privacy choices.</p>
+  </section>
 
-<div class="section">
-<h2>1. Information We Collect</h2>
+  <section class="block" id="permissions">
+    <h2 class="title">2. Permissions Used</h2>
 
-<p>
-Line Animator does not require users to create an account
-or provide personal information such as:
-</p>
+    <h3>Storage and Media Access</h3>
+    <p>Line Animator may request storage or media access permissions depending on the Android version.</p>
+    <p>These permissions are used to:</p>
+    <ul>
+      <li>Create and save animation projects</li>
+      <li>Import images selected by the user</li>
+      <li>Export animations as images or videos</li>
+      <li>Access user-selected files</li>
+    </ul>
+    <p>Animation projects are stored locally on the user’s device. The app does not intentionally access unrelated personal files.</p>
 
-<ul>
-<li>Name</li>
-<li>Email address</li>
-<li>Phone number</li>
-<li>Physical address</li>
-</ul>
+    <h3>Notification Permission</h3>
+    <p>Line Animator may request notification permission to display notifications related to app operations, such as export progress or completion.</p>
+    <p>Users can manage notification permissions through their device settings.</p>
 
-<p>
-The developer does not directly collect or upload
-user-created animation projects to external servers.
-</p>
+    <h3>Internet Access</h3>
+    <p>Internet access may be used for:</p>
+    <ul>
+      <li>Loading advertisements</li>
+      <li>Processing subscription purchases</li>
+      <li>Verifying subscription status</li>
+      <li>Accessing Google Play services</li>
+    </ul>
+  </section>
 
-<p>
-However, third-party services integrated into the app
-may automatically collect or process certain information,
-including:
-</p>
+  <section class="block" id="third-party">
+    <h2 class="title">3. Third-Party Services</h2>
+    <p>Line Animator integrates services provided by Google to support advertising, subscriptions, and other app functionality.</p>
+    <p>These services may include:</p>
+    <ul>
+      <li>Google AdMob</li>
+      <li>Google Play Billing</li>
+      <li>Google Play Services</li>
+      <li>Google Play In-App Review</li>
+    </ul>
+    <p>These services may process device information, app interactions, diagnostic data, and other information necessary to provide their functionality.</p>
+    <p>For more information, please review:</p>
+    <p><a class="pill" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></p>
+  </section>
 
-<ul>
-<li>Device information and identifiers</li>
-<li>Advertising identifiers</li>
-<li>App interactions and usage information</li>
-<li>Diagnostic and performance information</li>
-<li>Purchase and subscription information</li>
-</ul>
+  <section class="block" id="advertising">
+    <h2 class="title">4. Advertising</h2>
+    <p>Line Animator displays advertisements through <strong>Google AdMob</strong>.</p>
+    <p>Advertisements may include banner advertisements, interstitial advertisements, and rewarded advertisements.</p>
+    <p>Google AdMob and its advertising partners may collect or process information such as:</p>
+    <ul>
+      <li>Advertising identifiers</li>
+      <li>Device information</li>
+      <li>IP address</li>
+      <li>Ad interactions</li>
+      <li>Approximate location inferred from network information</li>
+    </ul>
+    <p>This information may be used for advertising delivery, measurement, fraud prevention, and, where permitted, advertising personalization.</p>
+    <p>Users may manage available advertising preferences through their Google account or device settings.</p>
+    <p>Users with an active premium subscription may receive an advertisement-free experience, depending on their subscription benefits.</p>
+    <p>For more information:</p>
+    <p><a class="pill" href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google Advertising Privacy Information</a></p>
+  </section>
 
-<p>
-The information processed depends on the third-party
-services used, device settings, and applicable privacy choices.
-</p>
+  <section class="block" id="subscriptions">
+    <h2 class="title">5. Subscriptions and Payments</h2>
+    <p>Line Animator offers optional premium subscriptions that provide access to additional features and benefits.</p>
+    <p>Available subscription plans may include:</p>
+    <ul>
+      <li>Monthly subscription</li>
+      <li>Yearly subscription</li>
+    </ul>
+    <p>All subscription purchases are processed securely through <strong>Google Play Billing</strong>.</p>
+    <p>The developer does not directly collect or store credit card numbers, debit card numbers, or other payment card details.</p>
+    <p>Google Play may process payment-related information according to its own privacy policies.</p>
+    <p>Line Animator may access limited purchase information, such as:</p>
+    <ul>
+      <li>Subscription purchase status</li>
+      <li>Purchased subscription plan</li>
+      <li>Purchase identifiers or tokens</li>
+      <li>Subscription expiration or renewal status</li>
+    </ul>
+    <p>This information is used to verify purchases, manage premium access, and restore subscription benefits.</p>
+
+    <h3>Automatic Renewal</h3>
+    <p>Monthly and yearly subscriptions automatically renew unless canceled before the next billing date, subject to Google Play’s subscription terms.</p>
+    <p>Subscription prices and billing periods are displayed before purchase.</p>
+
+    <h3>Subscription Cancellation</h3>
+    <p>Users can manage or cancel subscriptions through Google Play.</p>
+    <p>Canceling a subscription generally prevents future renewals while allowing access to subscription benefits until the end of the current paid billing period.</p>
+    <p><a class="pill" href="https://play.google.com/store/account/subscriptions" target="_blank" rel="noopener noreferrer">Manage Google Play Subscriptions</a></p>
+
+    <h3>Refunds</h3>
+    <p>Refund requests are subject to applicable Google Play refund policies and consumer protection laws.</p>
+    <p><a class="pill" href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener noreferrer">Google Play Refund Information</a></p>
+  </section>
+
+  <section class="block" id="storage">
+    <h2 class="title">6. Data Storage</h2>
+    <p>Animation projects, drawings, frames, layers, and exported files are stored locally on the user’s device.</p>
+    <p>Line Animator does not automatically upload user-created animation projects to developer-operated servers.</p>
+    <p>Users are responsible for managing their locally stored projects and exported files.</p>
+    <p>Removing the app may delete app-specific project data, depending on Android storage and backup behavior.</p>
+  </section>
+
+  <section class="block" id="reviews">
+    <h2 class="title">7. In-App Reviews</h2>
+    <p>Line Animator may occasionally request users to rate or review the app through the Google Play In-App Review service.</p>
+    <p>Reviews and ratings are handled by Google Play.</p>
+    <p>The developer does not directly collect personal information through the in-app review interface.</p>
+  </section>
+
+  <section class="block" id="security">
+    <h2 class="title">8. Data Security</h2>
+    <p>Line Animator takes reasonable measures to protect locally stored application data.</p>
+    <p>Payments and subscription transactions are processed through Google Play.</p>
+    <p>However, no method of electronic storage or data transmission can be guaranteed to be completely secure.</p>
+  </section>
+
+  <section class="block" id="children">
+    <h2 class="title">9. Children’s Privacy</h2>
+    <p>Line Animator is not specifically directed toward children under the age of 13.</p>
+    <p>The developer does not knowingly collect personal information directly from children.</p>
+    <p>If you believe that personal information relating to a child has been collected inappropriately, please contact us.</p>
+  </section>
+
+  <section class="block" id="choices">
+    <h2 class="title">10. Your Privacy Choices</h2>
+    <p>Users may:</p>
+    <ul>
+      <li>Manage app permissions through Android settings</li>
+      <li>Manage advertising preferences through Google settings</li>
+      <li>Cancel subscriptions through Google Play</li>
+      <li>Delete locally stored animation projects</li>
+      <li>Uninstall the app to remove applicable app-specific data</li>
+    </ul>
+    <p>For questions about privacy or data handling, users may contact the developer.</p>
+  </section>
+
+  <section class="block" id="changes">
+    <h2 class="title">11. Changes to This Privacy Policy</h2>
+    <p>This Privacy Policy may be updated to reflect changes in app functionality, third-party services, or legal requirements.</p>
+    <p>Any updates will be published on this page with a revised “Last Updated” date.</p>
+  </section>
+
+  <section class="block" id="contact">
+    <h2 class="title">12. Contact Us</h2>
+    <p>If you have questions or concerns regarding this Privacy Policy, please contact:</p>
+    <div class="contact">
+      <p><strong>Developer:</strong> Zix</p>
+      <p><strong>App:</strong> Line Animator</p>
+      <p><strong>Email:</strong> <a href="mailto:karanrajakofficial@gmail.com">karanrajakofficial@gmail.com</a></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Line Animator. All rights reserved.</p>
+  </footer>
+
 </div>
-
-<div class="section">
-<h2>2. Permissions Used</h2>
-
-<h3>Storage and Media Access</h3>
-
-<p>
-Line Animator may request storage or media access
-permissions depending on the Android version.
-</p>
-
-<p>These permissions are used to:</p>
-
-<ul>
-<li>Create and save animation projects</li>
-<li>Import images selected by the user</li>
-<li>Export animations as images or videos</li>
-<li>Access user-selected files</li>
-</ul>
-
-<p>
-Animation projects are stored locally on the user's device.
-The app does not intentionally access unrelated personal files.
-</p>
-
-<h3>Notification Permission</h3>
-
-<p>
-Line Animator may request notification permission
-to display notifications related to app operations,
-such as export progress or completion.
-</p>
-
-<p>
-Users can manage notification permissions
-through their device settings.
-</p>
-
-<h3>Internet Access</h3>
-
-<p>
-Internet access may be used for:
-</p>
-
-<ul>
-<li>Loading advertisements</li>
-<li>Processing subscription purchases</li>
-<li>Verifying subscription status</li>
-<li>Accessing Google Play services</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>3. Third-Party Services</h2>
-
-<p>
-Line Animator integrates services provided by Google
-to support advertising, subscriptions, and other
-app functionality.
-</p>
-
-<p>These services may include:</p>
-
-<ul>
-<li>Google AdMob</li>
-<li>Google Play Billing</li>
-<li>Google Play Services</li>
-<li>Google Play In-App Review</li>
-</ul>
-
-<p>
-These services may process device information,
-app interactions, diagnostic data, and other
-information necessary to provide their functionality.
-</p>
-
-<p>
-For more information, please review:
-</p>
-
-<p>
-<a href="https://policies.google.com/privacy"
-target="_blank" rel="noopener noreferrer">
-Google Privacy Policy
-</a>
-</p>
-</div>
-
-<div class="section">
-<h2>4. Advertising</h2>
-
-<p>
-Line Animator displays advertisements through
-<strong>Google AdMob</strong>.
-</p>
-
-<p>
-Advertisements may include banner advertisements,
-interstitial advertisements, and rewarded advertisements.
-</p>
-
-<p>
-Google AdMob and its advertising partners may collect
-or process information such as:
-</p>
-
-<ul>
-<li>Advertising identifiers</li>
-<li>Device information</li>
-<li>IP address</li>
-<li>Ad interactions</li>
-<li>Approximate location inferred from network information</li>
-</ul>
-
-<p>
-This information may be used for advertising delivery,
-measurement, fraud prevention, and, where permitted,
-advertising personalization.
-</p>
-
-<p>
-Users may manage available advertising preferences
-through their Google account or device settings.
-</p>
-
-<p>
-Users with an active premium subscription
-may receive an advertisement-free experience,
-depending on their subscription benefits.
-</p>
-
-<p>
-For more information:
-</p>
-
-<p>
-<a href="https://policies.google.com/technologies/ads"
-target="_blank" rel="noopener noreferrer">
-Google Advertising Privacy Information
-</a>
-</p>
-</div>
-
-<div class="section">
-<h2>5. Subscriptions and Payments</h2>
-
-<p>
-Line Animator offers optional premium subscriptions
-that provide access to additional features and benefits.
-</p>
-
-<p>
-Available subscription plans may include:
-</p>
-
-<ul>
-<li>Monthly subscription</li>
-<li>Yearly subscription</li>
-</ul>
-
-<p>
-All subscription purchases are processed securely
-through <strong>Google Play Billing</strong>.
-</p>
-
-<p>
-The developer does not directly collect or store
-credit card numbers, debit card numbers,
-or other payment card details.
-</p>
-
-<p>
-Google Play may process payment-related information
-according to its own privacy policies.
-</p>
-
-<p>
-Line Animator may access limited purchase information,
-such as:
-</p>
-
-<ul>
-<li>Subscription purchase status</li>
-<li>Purchased subscription plan</li>
-<li>Purchase identifiers or tokens</li>
-<li>Subscription expiration or renewal status</li>
-</ul>
-
-<p>
-This information is used to verify purchases,
-manage premium access, and restore subscription benefits.
-</p>
-
-<h3>Automatic Renewal</h3>
-
-<p>
-Monthly and yearly subscriptions automatically renew
-unless canceled before the next billing date,
-subject to Google Play's subscription terms.
-</p>
-
-<p>
-Subscription prices and billing periods are displayed
-before purchase.
-</p>
-
-<h3>Subscription Cancellation</h3>
-
-<p>
-Users can manage or cancel subscriptions
-through Google Play.
-</p>
-
-<p>
-Canceling a subscription generally prevents
-future renewals while allowing access to
-subscription benefits until the end of the
-current paid billing period.
-</p>
-
-<p>
-<a href="https://play.google.com/store/account/subscriptions"
-target="_blank" rel="noopener noreferrer">
-Manage Google Play Subscriptions
-</a>
-</p>
-
-<h3>Refunds</h3>
-
-<p>
-Refund requests are subject to applicable
-Google Play refund policies and consumer protection laws.
-</p>
-
-<p>
-<a href="https://support.google.com/googleplay/answer/2479637"
-target="_blank" rel="noopener noreferrer">
-Google Play Refund Information
-</a>
-</p>
-</div>
-
-<div class="section">
-<h2>6. Data Storage</h2>
-
-<p>
-Animation projects, drawings, frames, layers,
-and exported files are stored locally
-on the user's device.
-</p>
-
-<p>
-Line Animator does not automatically upload
-user-created animation projects to developer-operated servers.
-</p>
-
-<p>
-Users are responsible for managing their
-locally stored projects and exported files.
-</p>
-
-<p>
-Removing the app may delete app-specific
-project data, depending on Android storage
-and backup behavior.
-</p>
-</div>
-
-<div class="section">
-<h2>7. In-App Reviews</h2>
-
-<p>
-Line Animator may occasionally request users
-to rate or review the app through the
-Google Play In-App Review service.
-</p>
-
-<p>
-Reviews and ratings are handled by Google Play.
-</p>
-
-<p>
-The developer does not directly collect
-personal information through the in-app review interface.
-</p>
-</div>
-
-<div class="section">
-<h2>8. Data Security</h2>
-
-<p>
-Line Animator takes reasonable measures
-to protect locally stored application data.
-</p>
-
-<p>
-Payments and subscription transactions
-are processed through Google Play.
-</p>
-
-<p>
-However, no method of electronic storage
-or data transmission can be guaranteed
-to be completely secure.
-</p>
-</div>
-
-<div class="section">
-<h2>9. Children's Privacy</h2>
-
-<p>
-Line Animator is not specifically directed
-toward children under the age of 13.
-</p>
-
-<p>
-The developer does not knowingly collect
-personal information directly from children.
-</p>
-
-<p>
-If you believe that personal information
-relating to a child has been collected
-inappropriately, please contact us.
-</p>
-</div>
-
-<div class="section">
-<h2>10. Your Privacy Choices</h2>
-
-<p>
-Users may:
-</p>
-
-<ul>
-<li>Manage app permissions through Android settings</li>
-<li>Manage advertising preferences through Google settings</li>
-<li>Cancel subscriptions through Google Play</li>
-<li>Delete locally stored animation projects</li>
-<li>Uninstall the app to remove applicable app-specific data</li>
-</ul>
-
-<p>
-For questions about privacy or data handling,
-users may contact the developer.
-</p>
-</div>
-
-<div class="section">
-<h2>11. Changes to This Privacy Policy</h2>
-
-<p>
-This Privacy Policy may be updated
-to reflect changes in app functionality,
-third-party services, or legal requirements.
-</p>
-
-<p>
-Any updates will be published on this page
-with a revised "Last Updated" date.
-</p>
-</div>
-
-<div class="section">
-<h2>12. Contact Us</h2>
-
-<p>
-If you have questions or concerns
-regarding this Privacy Policy,
-please contact:
-</p>
-
-<p>
-<strong>Developer:</strong> Zix<br>
-<strong>App:</strong> Line Animator<br>
-<strong>Email:</strong>
-<a href="https://wa.me/919111706561">
-karanrajakofficial@gmail.com
-</a>
-</p>
-</div>
-
-<div class="footer">
-<p>© 2026 Line Animator. All rights reserved.</p>
-</div>
-
 </body>
 </html>
